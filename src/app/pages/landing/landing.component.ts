@@ -193,40 +193,280 @@ interface Product {
     </div>
   `,
   styles: [`
+    .hero-section {
+      position: relative;
+      overflow: hidden;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%);
+      background-size: 400% 400%;
+      animation: gradientShift 20s ease infinite;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .hero-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      opacity: 0.6;
+      animation: float 25s ease-in-out infinite;
+    }
+
+    .orb-1 {
+      width: 400px;
+      height: 400px;
+      background: linear-gradient(135deg, #ff6b6b, #ffa500);
+      top: -200px;
+      left: -200px;
+      animation-delay: 0s;
+    }
+
+    .orb-2 {
+      width: 300px;
+      height: 300px;
+      background: linear-gradient(135deg, #4ecdc4, #44a08d);
+      bottom: -150px;
+      right: -150px;
+      animation-delay: -8s;
+    }
+
+    .orb-3 {
+      width: 250px;
+      height: 250px;
+      background: linear-gradient(135deg, #b06ab3, #4568dc);
+      top: 30%;
+      right: 30%;
+      animation-delay: -16s;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      33% { transform: translateY(-40px) rotate(120deg); }
+      66% { transform: translateY(30px) rotate(240deg); }
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50px;
+      padding: 0.75rem 1.5rem;
+      color: white;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      animation: fadeInUp 1s ease 0.2s both;
+    }
+
+    .hero-title {
+      font-size: 4rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      animation: fadeInUp 1s ease 0.4s both;
+    }
+
+    .hero-brand {
+      background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: none;
+    }
+
+    .hero-subtitle {
+      font-size: 1.5rem;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 3rem;
+      line-height: 1.6;
+      animation: fadeInUp 1s ease 0.6s both;
+    }
+
+    .hero-features {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+      animation: fadeInUp 1s ease 0.8s both;
+    }
+
+    .feature-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      color: white;
+    }
+
+    .feature-icon {
+      width: 60px;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.2);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+
+    .feature-icon:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: scale(1.1);
+    }
+
+    .feature-icon i {
+      font-size: 1.5rem;
+    }
+
+    .hero-cta {
+      animation: fadeInUp 1s ease 1s both;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    :host ::ng-deep .hero-button {
+      background: linear-gradient(135deg, #ff6b6b 0%, #ffa500 100%);
+      border: none;
+      border-radius: 50px;
+      padding: 1rem 2.5rem;
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: white;
+      box-shadow: 0 8px 30px rgba(255, 107, 107, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    :host ::ng-deep .hero-button:hover:not(:disabled) {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(255, 107, 107, 0.4);
+    }
+
     .product-card {
-      transition: transform 0.2s ease-in-out;
+      transition: all 0.3s ease;
+      border-radius: 20px;
+      overflow: hidden;
     }
-    
+
     .product-card:hover {
-      transform: translateY(-4px);
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
     }
-    
+
     :host ::ng-deep .p-card {
-      border-radius: 0.75rem;
+      border-radius: 20px;
       border: none;
       height: 100%;
       display: flex;
       flex-direction: column;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
     }
-    
+
+    :host ::ng-deep .p-card:hover {
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    }
+
     :host ::ng-deep .p-card-content {
       flex-grow: 1;
       display: flex;
       flex-direction: column;
     }
-    
+
     :host ::ng-deep .p-rating .p-rating-icon {
       color: #fbbf24;
     }
-    
-    .feature-item {
-      padding: 2rem;
-      border-radius: 0.75rem;
-      transition: background-color 0.2s;
+
+    .bottom-features {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
     }
-    
-    .feature-item:hover {
-      background-color: #f9fafb;
+
+    .bottom-features .feature-item {
+      padding: 3rem 2rem;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+      text-align: center;
+      color: white;
+    }
+
+    .bottom-features .feature-item:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-5px);
+    }
+
+    .bottom-features .feature-item i {
+      display: block;
+      margin-bottom: 1.5rem;
+    }
+
+    .bottom-features .feature-item h3 {
+      color: white;
+      margin-bottom: 1rem;
+    }
+
+    .bottom-features .feature-item p {
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2.5rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1.25rem;
+      }
+
+      .hero-features {
+        gap: 2rem;
+      }
+
+      .feature-icon {
+        width: 50px;
+        height: 50px;
+      }
+
+      .feature-icon i {
+        font-size: 1.25rem;
+      }
     }
   `]
 })
