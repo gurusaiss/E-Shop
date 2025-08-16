@@ -24,7 +24,7 @@ jobs:
       run: npm ci --legacy-peer-deps
       
     - name: Build Angular app
-      run: npm run build --prod
+      run: npm run build:gh-pages
       
     - name: Copy index.html to 404.html (for SPA routing)
       run: cp dist/fusion-angular-tailwind-starter/browser/index.html dist/fusion-angular-tailwind-starter/browser/404.html
