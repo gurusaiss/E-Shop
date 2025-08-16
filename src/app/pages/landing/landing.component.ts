@@ -83,7 +83,7 @@ interface Product {
       </div>
 
       <!-- Products Section -->
-      <div class="container mx-auto px-4 py-12">
+      <div class="products-section container mx-auto px-6 py-16">
         <div class="text-center mb-12">
           <h2 class="text-3xl font-bold text-gray-900 mb-4">Featured Products</h2>
           <p class="text-lg text-gray-600">Browse our amazing collection of products</p>
