@@ -2,7 +2,7 @@ name: Deploy E-Shop to Public URL
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -20,34 +20,34 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    
+
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
-      
-    - name: Setup Node.js 18
-      uses: actions/setup-node@v4
-      with:
-        node-version: '18'
-        cache: 'npm'
-        
-    - name: Install dependencies
-      run: npm ci --legacy-peer-deps
-      
-    - name: Build for production
-      run: npm run build -- --configuration production --base-href "/E-shop/"
-      
-    - name: Add 404.html for SPA routing
-      run: cp dist/fusion-angular-tailwind-starter/browser/index.html dist/fusion-angular-tailwind-starter/browser/404.html
-      
-    - name: Setup GitHub Pages
-      uses: actions/configure-pages@v4
-      
-    - name: Upload Pages artifact
-      uses: actions/upload-pages-artifact@v3
-      with:
-        path: './dist/fusion-angular-tailwind-starter/browser'
-        
-    - name: Deploy to GitHub Pages
-      id: deployment
-      uses: actions/deploy-pages@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 18
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps
+
+      - name: Build for production
+        run: npm run build -- --configuration production --base-href "/E-shop/"
+
+      - name: Add 404.html for SPA routing
+        run: cp dist/fusion-angular-tailwind-starter/browser/index.html dist/fusion-angular-tailwind-starter/browser/404.html
+
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "./dist/fusion-angular-tailwind-starter/browser"
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

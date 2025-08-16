@@ -3,6 +3,7 @@
 ## Quick Deployment Steps
 
 ### 1. Push to GitHub
+
 ```bash
 git add .
 git commit -m "Deploy to public URL"
@@ -10,12 +11,14 @@ git push origin main
 ```
 
 ### 2. Enable GitHub Pages
+
 1. Go to your repository: `https://github.com/gurusaiss/E-shop`
 2. Click **Settings** → **Pages**
 3. Under **Source**, select **"GitHub Actions"**
 4. Save the settings
 
 ### 3. Configure Permissions
+
 1. Go to **Settings** → **Actions** → **General**
 2. Under **Workflow permissions**, select:
    - ✅ **"Read and write permissions"**
@@ -23,6 +26,7 @@ git push origin main
 3. Click **Save**
 
 ### 4. Trigger Deployment
+
 - The deployment will start automatically when you push to main
 - Or go to **Actions** tab and click **"Run workflow"** on the "Deploy E-Shop to Public URL" workflow
 
@@ -37,6 +41,7 @@ After successful deployment, your website will be available at:
 If GitHub Pages doesn't work, here are other free options:
 
 ### Option 1: Netlify (Recommended)
+
 1. Go to [netlify.com](https://netlify.com)
 2. Connect your GitHub repository
 3. Build command: `npm run build:gh-pages`
@@ -44,12 +49,14 @@ If GitHub Pages doesn't work, here are other free options:
 5. Get instant URL like: `https://amazing-name-123456.netlify.app`
 
 ### Option 2: Vercel
+
 1. Go to [vercel.com](https://vercel.com)
 2. Import your GitHub repository
 3. Auto-detects Angular settings
 4. Get URL like: `https://e-shop-xyz.vercel.app`
 
 ### Option 3: Firebase Hosting
+
 1. Install Firebase CLI: `npm install -g firebase-tools`
 2. Run `firebase login` and `firebase init hosting`
 3. Set public directory to: `dist/fusion-angular-tailwind-starter/browser`
@@ -58,11 +65,13 @@ If GitHub Pages doesn't work, here are other free options:
 ## 🔧 Troubleshooting
 
 ### If GitHub Pages shows blank page:
+
 1. Check the build completed successfully in Actions tab
 2. Verify the base href is correct for your repository name
 3. Make sure GitHub Pages source is set to "GitHub Actions"
 
 ### If build fails:
+
 1. Check the Actions tab for error details
 2. Make sure all dependencies install correctly
 3. Verify the build works locally: `npm run build:gh-pages`
@@ -70,6 +79,7 @@ If GitHub Pages doesn't work, here are other free options:
 ## 📱 Share Your Website
 
 Once deployed, you can share your public URL with anyone:
+
 - **GitHub Pages:** `https://gurusaiss.github.io/E-shop/`
 - **Netlify:** `https://yourapp.netlify.app`
 - **Vercel:** `https://yourapp.vercel.app`
