@@ -10,9 +10,11 @@
 ## 🚀 **Quick Fix Steps:**
 
 ### 1. Delete the old workflow run
+
 Go to your repository → Actions → Delete any failed workflow runs
 
 ### 2. Push the updated files
+
 ```bash
 git add .
 git commit -m "Fix GitHub Pages deployment workflow"
@@ -20,12 +22,14 @@ git push origin main
 ```
 
 ### 3. Configure GitHub Pages (IMPORTANT!)
+
 1. Go to your repository on GitHub
 2. Click **Settings** → **Pages**
 3. Under **Source**, select **"GitHub Actions"** (not "Deploy from a branch")
 4. Save the settings
 
 ### 4. Enable required permissions
+
 1. Go to **Settings** → **Actions** → **General**
 2. Under **Workflow permissions**, select:
    - ✅ **"Read and write permissions"**
@@ -42,12 +46,15 @@ I've created two workflows for you:
 Both should work, but if one fails, you can disable it and use the other.
 
 ## 🔍 **To Disable a Workflow:**
+
 If you want to use only one workflow:
+
 1. Go to repository → Actions
 2. Click on the workflow name
 3. Click "..." → "Disable workflow"
 
 ## 🌐 **Your Site URL:**
+
 After successful deployment, your site will be at:
 `https://yourusername.github.io/repository-name/`
 

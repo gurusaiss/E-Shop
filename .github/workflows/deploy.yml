@@ -2,7 +2,7 @@ name: Deploy Angular App to GitHub Pages
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
@@ -19,37 +19,37 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    
+
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4
-      
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '18'
-        cache: 'npm'
-        
-    - name: Install dependencies
-      run: npm ci --legacy-peer-deps
-      
-    - name: Build Angular app
-      run: npm run build:gh-pages
-      
-    - name: List build output (debug)
-      run: |
-        echo "Build output structure:"
-        ls -la dist/
-        ls -la dist/fusion-angular-tailwind-starter/
-        ls -la dist/fusion-angular-tailwind-starter/browser/
-        
-    - name: Copy index.html to 404.html (for SPA routing)
-      run: cp dist/fusion-angular-tailwind-starter/browser/index.html dist/fusion-angular-tailwind-starter/browser/404.html
-      
-    - name: Upload artifact
-      uses: actions/upload-pages-artifact@v3
-      with:
-        path: ./dist/fusion-angular-tailwind-starter/browser
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps
+
+      - name: Build Angular app
+        run: npm run build:gh-pages
+
+      - name: List build output (debug)
+        run: |
+          echo "Build output structure:"
+          ls -la dist/
+          ls -la dist/fusion-angular-tailwind-starter/
+          ls -la dist/fusion-angular-tailwind-starter/browser/
+
+      - name: Copy index.html to 404.html (for SPA routing)
+        run: cp dist/fusion-angular-tailwind-starter/browser/index.html dist/fusion-angular-tailwind-starter/browser/404.html
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist/fusion-angular-tailwind-starter/browser
 
   deploy:
     environment:
