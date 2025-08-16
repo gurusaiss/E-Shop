@@ -667,16 +667,20 @@ import { MessageModule } from 'primeng/message';
       .auth-content {
         padding: 1rem;
       }
-      
+
       .welcome-header {
         padding: 2rem 1.5rem;
       }
-      
+
       .auth-form {
         padding: 1.5rem;
       }
-      
-      :host ::ng-deep .p-tabview .p-tabview-nav li .p-tabview-nav-link {
+
+      .custom-tabs {
+        padding: 0 1rem;
+      }
+
+      .tab-button {
         padding: 1.25rem 1rem;
         font-size: 0.875rem;
       }
