@@ -620,47 +620,46 @@ import { MessageModule } from 'primeng/message';
     :host ::ng-deep .form-success {
       margin-top: 0.5rem;
     }
-    
-    :host ::ng-deep .p-tabview .p-tabview-nav {
+
+    .custom-tabs {
+      display: flex;
       background: transparent;
-      border: none;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
       padding: 0 2rem;
     }
-    
-    :host ::ng-deep .p-tabview .p-tabview-nav li {
-      margin-right: 0;
-    }
-    
-    :host ::ng-deep .p-tabview .p-tabview-nav li .p-tabview-nav-link {
+
+    .tab-button {
       background: transparent;
       border: none;
       padding: 1.5rem 2rem;
       color: #718096;
       font-weight: 600;
-      border-radius: 0;
-      border-bottom: 3px solid transparent;
+      font-size: 1rem;
+      cursor: pointer;
       transition: all 0.3s ease;
+      border-bottom: 3px solid transparent;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex: 1;
+      justify-content: center;
     }
-    
-    :host ::ng-deep .p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
-      background: transparent;
-      color: #667eea;
-      border-bottom-color: #667eea;
-    }
-    
-    :host ::ng-deep .p-tabview .p-tabview-nav li .p-tabview-nav-link:hover {
+
+    .tab-button:hover {
       background: rgba(102, 126, 234, 0.05);
       color: #667eea;
     }
-    
-    :host ::ng-deep .p-tabview .p-tabview-panels {
-      background: transparent;
-      border: none;
+
+    .tab-button.active {
+      color: #667eea;
+      border-bottom-color: #667eea;
+    }
+
+    .tab-content {
       padding: 0;
     }
-    
-    :host ::ng-deep .p-tabview .p-tabview-panel {
-      background: transparent;
+
+    .tab-panel {
       padding: 0;
     }
     
