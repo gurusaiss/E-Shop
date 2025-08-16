@@ -8,7 +8,6 @@ import { PasswordModule } from 'primeng/password';
 import { ButtonModule } from 'primeng/button';
 import { CheckboxModule } from 'primeng/checkbox';
 import { MessageModule } from 'primeng/message';
-import { TabViewModule } from 'primeng/tabview';
 
 @Component({
   selector: 'app-auth',
