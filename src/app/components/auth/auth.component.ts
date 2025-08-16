@@ -317,9 +317,9 @@ import { MessageModule } from 'primeng/message';
                   </p-message>
 
                 </form>
-              </p-tabPanel>
-              
-            </p-tabView>
+              </div>
+
+            </div>
           </div>
         </div>
       </div>
