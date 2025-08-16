@@ -84,10 +84,9 @@ interface Product {
                 
                 <!-- Rating -->
                 <div class="flex items-center mb-3">
-                  <p-rating 
-                    [(ngModel)]="product.rating" 
-                    [readonly]="true" 
-                    [cancel]="false"
+                  <p-rating
+                    [(ngModel)]="product.rating"
+                    [readonly]="true"
                     styleClass="text-sm">
                   </p-rating>
                   <span class="ml-2 text-sm text-gray-500">({{ product.rating }}/5)</span>
