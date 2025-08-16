@@ -139,7 +139,7 @@ interface UserProfile {
                         id="fullName"
                         formControlName="fullName"
                         placeholder="Enter your full name"
-                        class="w-full"
+                        class="w-full modern-input"
                         [class.ng-invalid]="profileForm.get('fullName')?.invalid && profileForm.get('fullName')?.touched"
                       />
                       <p-message
