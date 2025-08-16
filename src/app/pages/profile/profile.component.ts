@@ -161,7 +161,7 @@ interface UserProfile {
                         formControlName="email"
                         placeholder="Enter your email"
                         type="email"
-                        class="w-full"
+                        class="w-full modern-input"
                         [class.ng-invalid]="profileForm.get('email')?.invalid && profileForm.get('email')?.touched"
                       />
                       <p-message
