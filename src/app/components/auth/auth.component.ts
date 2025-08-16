@@ -20,8 +20,7 @@ import { MessageModule } from 'primeng/message';
     PasswordModule,
     ButtonModule,
     CheckboxModule,
-    MessageModule,
-    TabViewModule
+    MessageModule
   ],
   template: `
     <div class="auth-container">
