@@ -188,7 +188,7 @@ interface UserProfile {
                         id="phoneNumber"
                         formControlName="phoneNumber"
                         placeholder="Enter your phone number"
-                        class="w-full"
+                        class="w-full modern-input"
                         [class.ng-invalid]="profileForm.get('phoneNumber')?.invalid && profileForm.get('phoneNumber')?.touched"
                       />
                       <p-message
