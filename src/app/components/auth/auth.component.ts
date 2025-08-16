@@ -41,10 +41,31 @@ import { MessageModule } from 'primeng/message';
           </div>
           
           <div class="auth-card">
-            <p-tabView [activeIndex]="activeTabIndex" (activeIndexChange)="onTabChange($event)">
-              
+            <!-- Custom Tab Navigation -->
+            <div class="custom-tabs">
+              <button
+                type="button"
+                class="tab-button"
+                [class.active]="activeTabIndex === 0"
+                (click)="onTabChange(0)">
+                <i class="pi pi-sign-in"></i>
+                Sign In
+              </button>
+              <button
+                type="button"
+                class="tab-button"
+                [class.active]="activeTabIndex === 1"
+                (click)="onTabChange(1)">
+                <i class="pi pi-user-plus"></i>
+                Sign Up
+              </button>
+            </div>
+
+            <!-- Tab Panels -->
+            <div class="tab-content">
+
               <!-- Login Tab -->
-              <p-tabPanel header="Sign In" leftIcon="pi pi-sign-in">
+              <div *ngIf="activeTabIndex === 0" class="tab-panel">
                 <form [formGroup]="loginForm" (ngSubmit)="onLogin()" class="auth-form">
                   
                   <!-- Username Field -->
