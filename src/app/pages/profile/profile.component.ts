@@ -258,27 +258,115 @@ interface UserProfile {
     </div>
   `,
   styles: [`
-    :host ::ng-deep .p-card {
-      border-radius: 0.75rem;
-      border: none;
-      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    .profile-container {
+      min-height: 100vh;
+      position: relative;
+      overflow: hidden;
     }
-    
+
+    .profile-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%);
+      background-size: 400% 400%;
+      animation: gradientShift 20s ease infinite;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .profile-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      opacity: 0.5;
+      animation: float 25s ease-in-out infinite;
+    }
+
+    .orb-1 {
+      width: 300px;
+      height: 300px;
+      background: linear-gradient(135deg, #ff6b6b, #ffa500);
+      top: -150px;
+      left: -150px;
+      animation-delay: 0s;
+    }
+
+    .orb-2 {
+      width: 250px;
+      height: 250px;
+      background: linear-gradient(135deg, #4ecdc4, #44a08d);
+      bottom: -125px;
+      right: -125px;
+      animation-delay: -10s;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      33% { transform: translateY(-30px) rotate(120deg); }
+      66% { transform: translateY(20px) rotate(240deg); }
+    }
+
+    .profile-content {
+      position: relative;
+      z-index: 10;
+    }
+
+    :host ::ng-deep .p-card {
+      border-radius: 20px;
+      border: none;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(20px);
+      background: rgba(255, 255, 255, 0.95);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
     :host ::ng-deep .p-card-header {
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       color: white;
-      font-size: 1.125rem;
+      font-size: 1.25rem;
       font-weight: 600;
-      padding: 1.5rem;
-      border-radius: 0.75rem 0.75rem 0 0;
+      padding: 2rem;
+      border-radius: 20px 20px 0 0;
+      text-align: center;
     }
-    
+
     :host ::ng-deep .p-card-content {
-      padding: 1.5rem;
+      padding: 2rem;
     }
-    
+
     :host ::ng-deep .p-avatar {
-      background-color: #3b82f6 !important;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+    }
+
+    :host ::ng-deep .modern-input {
+      border: 2px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 1rem;
+      transition: all 0.3s ease;
+      background: white;
+    }
+
+    :host ::ng-deep .modern-input:focus {
+      border-color: #667eea;
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+
+    :host ::ng-deep .p-button {
+      border-radius: 12px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    :host ::ng-deep .p-button:hover:not(:disabled) {
+      transform: translateY(-2px);
     }
   `]
 })
