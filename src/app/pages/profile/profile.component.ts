@@ -29,7 +29,12 @@ interface UserProfile {
     DividerModule
   ],
   template: `
-    <div class="min-h-screen bg-gray-50 py-8">
+    <div class="profile-container">
+      <div class="profile-background">
+        <div class="profile-orb orb-1"></div>
+        <div class="profile-orb orb-2"></div>
+      </div>
+      <div class="profile-content py-12">
       <div class="container mx-auto px-4 max-w-4xl">
         
         <!-- Profile Header -->
