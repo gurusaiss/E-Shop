@@ -29,16 +29,55 @@ interface Product {
     FormsModule
   ],
   template: `
-    <div class="min-h-screen bg-gray-50">
+    <div class="min-h-screen">
       <!-- Hero Section -->
-      <div class="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-16">
-        <div class="container mx-auto px-4 text-center">
-          <h1 class="text-4xl md:text-6xl font-bold mb-4">Welcome to E-Shop</h1>
-          <p class="text-xl md:text-2xl mb-8 opacity-90">Discover amazing products at unbeatable prices</p>
-          <div class="flex justify-center space-x-4">
-            <i class="pi pi-shopping-cart text-3xl"></i>
-            <i class="pi pi-heart text-3xl"></i>
-            <i class="pi pi-star text-3xl"></i>
+      <div class="hero-section">
+        <div class="hero-background">
+          <div class="hero-orb orb-1"></div>
+          <div class="hero-orb orb-2"></div>
+          <div class="hero-orb orb-3"></div>
+        </div>
+        <div class="container mx-auto px-6 relative z-10 text-center py-20">
+          <div class="hero-content">
+            <div class="hero-badge">
+              <i class="pi pi-star-fill"></i>
+              <span>Premium Shopping Experience</span>
+            </div>
+            <h1 class="hero-title">
+              Welcome to
+              <span class="hero-brand">E-Shop</span>
+            </h1>
+            <p class="hero-subtitle">
+              Discover amazing products at unbeatable prices with our curated collection of premium items
+            </p>
+            <div class="hero-features">
+              <div class="feature-item">
+                <div class="feature-icon">
+                  <i class="pi pi-shopping-cart"></i>
+                </div>
+                <span>Easy Shopping</span>
+              </div>
+              <div class="feature-item">
+                <div class="feature-icon">
+                  <i class="pi pi-heart"></i>
+                </div>
+                <span>Quality Products</span>
+              </div>
+              <div class="feature-item">
+                <div class="feature-icon">
+                  <i class="pi pi-star"></i>
+                </div>
+                <span>Best Prices</span>
+              </div>
+            </div>
+            <div class="hero-cta">
+              <p-button
+                label="Shop Now"
+                icon="pi pi-arrow-down"
+                styleClass="hero-button"
+                (onClick)="scrollToProducts()">
+              </p-button>
+            </div>
           </div>
         </div>
       </div>
