@@ -560,6 +560,13 @@ export class LandingComponent implements OnInit {
     // Component initialization
   }
 
+  scrollToProducts(): void {
+    const productsSection = document.querySelector('.products-section');
+    if (productsSection) {
+      productsSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
   viewDetails(product: Product): void {
     alert(`Viewing details for: ${product.name}\nPrice: $${product.price}\nCategory: ${product.category}`);
   }
