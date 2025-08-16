@@ -1,0 +1,17 @@
+[build]
+  command = "npm run build:gh-pages"
+  publish = "dist/fusion-angular-tailwind-starter/browser"
+
+[build.environment]
+  NODE_VERSION = "18"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[context.production]
+  command = "npm ci --legacy-peer-deps && npm run build:gh-pages"
+
+[context.deploy-preview]
+  command = "npm ci --legacy-peer-deps && npm run build:gh-pages"
