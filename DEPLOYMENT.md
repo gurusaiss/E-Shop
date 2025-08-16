@@ -15,11 +15,13 @@ The app will automatically deploy to GitHub Pages when you push to the `main` br
 If you need to deploy manually or troubleshoot:
 
 ### 1. Build for GitHub Pages
+
 ```bash
 npm run build:gh-pages
 ```
 
 ### 2. Deploy to GitHub Pages
+
 The built files will be in `dist/fusion-angular-tailwind-starter/browser/` directory.
 
 ## GitHub Pages Settings
@@ -36,7 +38,7 @@ Make sure your GitHub repository has the following settings:
 
 ### Common Issues:
 
-1. **Site shows README instead of app**: 
+1. **Site shows README instead of app**:
    - Make sure GitHub Pages source is set to "GitHub Actions"
    - Check that the workflow completed successfully
    - Verify the build output directory is correct
