@@ -151,10 +151,10 @@ import { MessageModule } from 'primeng/message';
                   </p-message>
 
                 </form>
-              </p-tabPanel>
+              </div>
 
               <!-- Register Tab -->
-              <p-tabPanel header="Sign Up" leftIcon="pi pi-user-plus">
+              <div *ngIf="activeTabIndex === 1" class="tab-panel">
                 <form [formGroup]="registerForm" (ngSubmit)="onRegister()" class="auth-form">
                   
                   <!-- Full Name Field -->
