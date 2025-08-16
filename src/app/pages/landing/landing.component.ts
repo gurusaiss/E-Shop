@@ -169,23 +169,23 @@ interface Product {
       </div>
 
       <!-- Features Section -->
-      <div class="bg-white py-16">
-        <div class="container mx-auto px-4">
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+      <div class="bottom-features py-20">
+        <div class="container mx-auto px-6">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div class="feature-item">
-              <i class="pi pi-truck text-4xl text-blue-600 mb-4"></i>
+              <i class="pi pi-truck text-5xl"></i>
               <h3 class="text-xl font-semibold mb-2">Free Shipping</h3>
-              <p class="text-gray-600">Free shipping on orders over $50</p>
+              <p>Free shipping on orders over $50</p>
             </div>
             <div class="feature-item">
-              <i class="pi pi-shield text-4xl text-green-600 mb-4"></i>
+              <i class="pi pi-shield text-5xl"></i>
               <h3 class="text-xl font-semibold mb-2">Secure Payment</h3>
-              <p class="text-gray-600">Your payment information is safe with us</p>
+              <p>Your payment information is safe with us</p>
             </div>
             <div class="feature-item">
-              <i class="pi pi-refresh text-4xl text-purple-600 mb-4"></i>
+              <i class="pi pi-refresh text-5xl"></i>
               <h3 class="text-xl font-semibold mb-2">Easy Returns</h3>
-              <p class="text-gray-600">30-day return policy on all items</p>
+              <p>30-day return policy on all items</p>
             </div>
           </div>
         </div>
