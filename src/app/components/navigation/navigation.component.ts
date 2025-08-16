@@ -1,11 +1,11 @@
-import { Component } from "@angular/core";
-import { CommonModule } from "@angular/common";
-import { RouterModule } from "@angular/router";
-import { MenubarModule } from "primeng/menubar";
-import { MenuItem } from "primeng/api";
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { MenubarModule } from 'primeng/menubar';
+import { MenuItem } from 'primeng/api';
 
 @Component({
-  selector: "app-navigation",
+  selector: 'app-navigation',
   standalone: true,
   imports: [CommonModule, RouterModule, MenubarModule],
   template: `
@@ -127,7 +127,7 @@ import { MenuItem } from "primeng/api";
       }
 
       :host ::ng-deep .p-menuitem-link::before {
-        content: "";
+        content: '';
         position: absolute;
         top: 0;
         left: 0;
@@ -174,24 +174,24 @@ import { MenuItem } from "primeng/api";
 export class NavigationComponent {
   items: MenuItem[] = [
     {
-      label: "Login",
-      icon: "pi pi-sign-in",
-      routerLink: "/login",
+      label: 'Login',
+      icon: 'pi pi-sign-in',
+      routerLink: '/login',
     },
     {
-      label: "Register",
-      icon: "pi pi-user-plus",
-      routerLink: "/register",
+      label: 'Register',
+      icon: 'pi pi-user-plus',
+      routerLink: '/register',
     },
     {
-      label: "Products",
-      icon: "pi pi-shop",
-      routerLink: "/landing",
+      label: 'Products',
+      icon: 'pi pi-shop',
+      routerLink: '/landing',
     },
     {
-      label: "Profile",
-      icon: "pi pi-user",
-      routerLink: "/profile",
+      label: 'Profile',
+      icon: 'pi pi-user',
+      routerLink: '/profile',
     },
   ];
 }

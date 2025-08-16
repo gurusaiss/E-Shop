@@ -1,21 +1,21 @@
-import { Component } from "@angular/core";
-import { CommonModule } from "@angular/common";
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import {
   ReactiveFormsModule,
   FormBuilder,
   FormGroup,
   Validators,
   AbstractControl,
-} from "@angular/forms";
-import { Router } from "@angular/router";
-import { CardModule } from "primeng/card";
-import { InputTextModule } from "primeng/inputtext";
-import { PasswordModule } from "primeng/password";
-import { ButtonModule } from "primeng/button";
-import { MessageModule } from "primeng/message";
+} from '@angular/forms';
+import { Router } from '@angular/router';
+import { CardModule } from 'primeng/card';
+import { InputTextModule } from 'primeng/inputtext';
+import { PasswordModule } from 'primeng/password';
+import { ButtonModule } from 'primeng/button';
+import { MessageModule } from 'primeng/message';
 
 @Component({
-  selector: "app-register",
+  selector: 'app-register',
   standalone: true,
   imports: [
     CommonModule,
@@ -298,7 +298,7 @@ import { MessageModule } from "primeng/message";
 export class RegisterComponent {
   registerForm: FormGroup;
   isLoading = false;
-  successMessage = "";
+  successMessage = '';
 
   constructor(
     private fb: FormBuilder,
@@ -306,11 +306,11 @@ export class RegisterComponent {
   ) {
     this.registerForm = this.fb.group(
       {
-        fullName: ["", [Validators.required]],
-        email: ["", [Validators.required, Validators.email]],
-        phoneNumber: ["", [Validators.required, Validators.pattern(/^\d+$/)]],
-        password: ["", [Validators.required]],
-        confirmPassword: ["", [Validators.required]],
+        fullName: ['', [Validators.required]],
+        email: ['', [Validators.required, Validators.email]],
+        phoneNumber: ['', [Validators.required, Validators.pattern(/^\d+$/)]],
+        password: ['', [Validators.required]],
+        confirmPassword: ['', [Validators.required]],
       },
       { validators: this.passwordMatchValidator },
     );
@@ -319,8 +319,8 @@ export class RegisterComponent {
   passwordMatchValidator(
     control: AbstractControl,
   ): { [key: string]: any } | null {
-    const password = control.get("password");
-    const confirmPassword = control.get("confirmPassword");
+    const password = control.get('password');
+    const confirmPassword = control.get('confirmPassword');
 
     if (
       password &&
@@ -331,7 +331,7 @@ export class RegisterComponent {
       return { passwordMismatch: true };
     }
 
-    if (confirmPassword?.hasError("passwordMismatch")) {
+    if (confirmPassword?.hasError('passwordMismatch')) {
       confirmPassword.setErrors(null);
     }
 
@@ -341,7 +341,7 @@ export class RegisterComponent {
   onSubmit() {
     if (this.registerForm.valid) {
       this.isLoading = true;
-      this.successMessage = "";
+      this.successMessage = '';
 
       const formData = this.registerForm.value;
 
@@ -355,19 +355,19 @@ export class RegisterComponent {
           registeredAt: new Date().toISOString(),
         };
 
-        localStorage.setItem("userProfile", JSON.stringify(userData));
-        localStorage.setItem("isLoggedIn", "true");
+        localStorage.setItem('userProfile', JSON.stringify(userData));
+        localStorage.setItem('isLoggedIn', 'true');
         localStorage.setItem(
-          "currentUser",
+          'currentUser',
           JSON.stringify({ username: formData.email }),
         );
 
         this.successMessage =
-          "Account created successfully! Redirecting to products...";
+          'Account created successfully! Redirecting to products...';
 
         // Redirect to landing page after 2 seconds
         setTimeout(() => {
-          this.router.navigate(["/landing"]);
+          this.router.navigate(['/landing']);
         }, 2000);
 
         this.isLoading = false;

@@ -1,22 +1,22 @@
-import { Component, OnInit } from "@angular/core";
-import { CommonModule } from "@angular/common";
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import {
   ReactiveFormsModule,
   FormBuilder,
   FormGroup,
   Validators,
   AbstractControl,
-} from "@angular/forms";
-import { Router, ActivatedRoute } from "@angular/router";
-import { CardModule } from "primeng/card";
-import { InputTextModule } from "primeng/inputtext";
-import { PasswordModule } from "primeng/password";
-import { ButtonModule } from "primeng/button";
-import { CheckboxModule } from "primeng/checkbox";
-import { MessageModule } from "primeng/message";
+} from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
+import { CardModule } from 'primeng/card';
+import { InputTextModule } from 'primeng/inputtext';
+import { PasswordModule } from 'primeng/password';
+import { ButtonModule } from 'primeng/button';
+import { CheckboxModule } from 'primeng/checkbox';
+import { MessageModule } from 'primeng/message';
 
 @Component({
-  selector: "app-auth",
+  selector: 'app-auth',
   standalone: true,
   imports: [
     CommonModule,
@@ -808,8 +808,8 @@ export class AuthComponent implements OnInit {
   activeTabIndex = 0;
   isLoginLoading = false;
   isRegisterLoading = false;
-  loginErrorMessage = "";
-  registerSuccessMessage = "";
+  loginErrorMessage = '';
+  registerSuccessMessage = '';
 
   constructor(
     private fb: FormBuilder,
@@ -817,18 +817,18 @@ export class AuthComponent implements OnInit {
     private route: ActivatedRoute,
   ) {
     this.loginForm = this.fb.group({
-      username: ["", [Validators.required]],
-      password: ["", [Validators.required]],
+      username: ['', [Validators.required]],
+      password: ['', [Validators.required]],
       rememberUsername: [false],
     });
 
     this.registerForm = this.fb.group(
       {
-        fullName: ["", [Validators.required]],
-        email: ["", [Validators.required, Validators.email]],
-        phoneNumber: ["", [Validators.required, Validators.pattern(/^\d+$/)]],
-        password: ["", [Validators.required]],
-        confirmPassword: ["", [Validators.required]],
+        fullName: ['', [Validators.required]],
+        email: ['', [Validators.required, Validators.email]],
+        phoneNumber: ['', [Validators.required, Validators.pattern(/^\d+$/)]],
+        password: ['', [Validators.required]],
+        confirmPassword: ['', [Validators.required]],
       },
       { validators: this.passwordMatchValidator },
     );
@@ -837,10 +837,10 @@ export class AuthComponent implements OnInit {
   ngOnInit() {
     // Set active tab based on route
     const currentPath = this.router.url;
-    this.activeTabIndex = currentPath.includes("register") ? 1 : 0;
+    this.activeTabIndex = currentPath.includes('register') ? 1 : 0;
 
     // Load saved username if exists
-    const savedUsername = localStorage.getItem("rememberedUsername");
+    const savedUsername = localStorage.getItem('rememberedUsername');
     if (savedUsername) {
       this.loginForm.patchValue({
         username: savedUsername,
@@ -852,15 +852,15 @@ export class AuthComponent implements OnInit {
   onTabChange(index: number) {
     this.activeTabIndex = index;
     // Update URL without navigation
-    const newPath = index === 1 ? "/register" : "/login";
+    const newPath = index === 1 ? '/register' : '/login';
     this.router.navigateByUrl(newPath, { replaceUrl: true });
   }
 
   passwordMatchValidator(
     control: AbstractControl,
   ): { [key: string]: any } | null {
-    const password = control.get("password");
-    const confirmPassword = control.get("confirmPassword");
+    const password = control.get('password');
+    const confirmPassword = control.get('confirmPassword');
 
     if (
       password &&
@@ -871,7 +871,7 @@ export class AuthComponent implements OnInit {
       return { passwordMismatch: true };
     }
 
-    if (confirmPassword?.hasError("passwordMismatch")) {
+    if (confirmPassword?.hasError('passwordMismatch')) {
       confirmPassword.setErrors(null);
     }
 
@@ -881,7 +881,7 @@ export class AuthComponent implements OnInit {
   onLogin() {
     if (this.loginForm.valid) {
       this.isLoginLoading = true;
-      this.loginErrorMessage = "";
+      this.loginErrorMessage = '';
 
       const { username, password, rememberUsername } = this.loginForm.value;
 
@@ -889,17 +889,17 @@ export class AuthComponent implements OnInit {
       setTimeout(() => {
         if (username && password) {
           if (rememberUsername) {
-            localStorage.setItem("rememberedUsername", username);
+            localStorage.setItem('rememberedUsername', username);
           } else {
-            localStorage.removeItem("rememberedUsername");
+            localStorage.removeItem('rememberedUsername');
           }
 
-          localStorage.setItem("isLoggedIn", "true");
-          localStorage.setItem("currentUser", JSON.stringify({ username }));
+          localStorage.setItem('isLoggedIn', 'true');
+          localStorage.setItem('currentUser', JSON.stringify({ username }));
 
-          this.router.navigate(["/landing"]);
+          this.router.navigate(['/landing']);
         } else {
-          this.loginErrorMessage = "Invalid username or password";
+          this.loginErrorMessage = 'Invalid username or password';
         }
         this.isLoginLoading = false;
       }, 1000);
@@ -909,7 +909,7 @@ export class AuthComponent implements OnInit {
   onRegister() {
     if (this.registerForm.valid) {
       this.isRegisterLoading = true;
-      this.registerSuccessMessage = "";
+      this.registerSuccessMessage = '';
 
       const formData = this.registerForm.value;
 
@@ -922,18 +922,18 @@ export class AuthComponent implements OnInit {
           registeredAt: new Date().toISOString(),
         };
 
-        localStorage.setItem("userProfile", JSON.stringify(userData));
-        localStorage.setItem("isLoggedIn", "true");
+        localStorage.setItem('userProfile', JSON.stringify(userData));
+        localStorage.setItem('isLoggedIn', 'true');
         localStorage.setItem(
-          "currentUser",
+          'currentUser',
           JSON.stringify({ username: formData.email }),
         );
 
         this.registerSuccessMessage =
-          "Account created successfully! Redirecting to products...";
+          'Account created successfully! Redirecting to products...';
 
         setTimeout(() => {
-          this.router.navigate(["/landing"]);
+          this.router.navigate(['/landing']);
         }, 2000);
 
         this.isRegisterLoading = false;

@@ -1,21 +1,21 @@
-import { Component, OnInit } from "@angular/core";
-import { CommonModule } from "@angular/common";
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import {
   ReactiveFormsModule,
   FormBuilder,
   FormGroup,
   Validators,
-} from "@angular/forms";
-import { Router } from "@angular/router";
-import { CardModule } from "primeng/card";
-import { InputTextModule } from "primeng/inputtext";
-import { PasswordModule } from "primeng/password";
-import { ButtonModule } from "primeng/button";
-import { CheckboxModule } from "primeng/checkbox";
-import { MessageModule } from "primeng/message";
+} from '@angular/forms';
+import { Router } from '@angular/router';
+import { CardModule } from 'primeng/card';
+import { InputTextModule } from 'primeng/inputtext';
+import { PasswordModule } from 'primeng/password';
+import { ButtonModule } from 'primeng/button';
+import { CheckboxModule } from 'primeng/checkbox';
+import { MessageModule } from 'primeng/message';
 
 @Component({
-  selector: "app-login",
+  selector: 'app-login',
   standalone: true,
   imports: [
     CommonModule,
@@ -190,22 +190,22 @@ import { MessageModule } from "primeng/message";
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   isLoading = false;
-  errorMessage = "";
+  errorMessage = '';
 
   constructor(
     private fb: FormBuilder,
     private router: Router,
   ) {
     this.loginForm = this.fb.group({
-      username: ["", [Validators.required]],
-      password: ["", [Validators.required]],
+      username: ['', [Validators.required]],
+      password: ['', [Validators.required]],
       rememberUsername: [false],
     });
   }
 
   ngOnInit() {
     // Load saved username if exists
-    const savedUsername = localStorage.getItem("rememberedUsername");
+    const savedUsername = localStorage.getItem('rememberedUsername');
     if (savedUsername) {
       this.loginForm.patchValue({
         username: savedUsername,
@@ -217,7 +217,7 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     if (this.loginForm.valid) {
       this.isLoading = true;
-      this.errorMessage = "";
+      this.errorMessage = '';
 
       const { username, password, rememberUsername } = this.loginForm.value;
 
@@ -227,18 +227,18 @@ export class LoginComponent implements OnInit {
         if (username && password) {
           // Save username if remember is checked
           if (rememberUsername) {
-            localStorage.setItem("rememberedUsername", username);
+            localStorage.setItem('rememberedUsername', username);
           } else {
-            localStorage.removeItem("rememberedUsername");
+            localStorage.removeItem('rememberedUsername');
           }
 
           // Save login state
-          localStorage.setItem("isLoggedIn", "true");
-          localStorage.setItem("currentUser", JSON.stringify({ username }));
+          localStorage.setItem('isLoggedIn', 'true');
+          localStorage.setItem('currentUser', JSON.stringify({ username }));
 
-          this.router.navigate(["/landing"]);
+          this.router.navigate(['/landing']);
         } else {
-          this.errorMessage = "Invalid username or password";
+          this.errorMessage = 'Invalid username or password';
         }
         this.isLoading = false;
       }, 1000);

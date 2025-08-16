@@ -1,17 +1,17 @@
-import { Component, OnInit } from "@angular/core";
-import { CommonModule } from "@angular/common";
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import {
   ReactiveFormsModule,
   FormBuilder,
   FormGroup,
   Validators,
-} from "@angular/forms";
-import { CardModule } from "primeng/card";
-import { InputTextModule } from "primeng/inputtext";
-import { ButtonModule } from "primeng/button";
-import { MessageModule } from "primeng/message";
-import { AvatarModule } from "primeng/avatar";
-import { DividerModule } from "primeng/divider";
+} from '@angular/forms';
+import { CardModule } from 'primeng/card';
+import { InputTextModule } from 'primeng/inputtext';
+import { ButtonModule } from 'primeng/button';
+import { MessageModule } from 'primeng/message';
+import { AvatarModule } from 'primeng/avatar';
+import { DividerModule } from 'primeng/divider';
 
 interface UserProfile {
   fullName: string;
@@ -21,7 +21,7 @@ interface UserProfile {
 }
 
 @Component({
-  selector: "app-profile",
+  selector: 'app-profile',
   standalone: true,
   imports: [
     CommonModule,
@@ -59,10 +59,10 @@ interface UserProfile {
                   >
                   </p-avatar>
                   <h3 class="text-xl font-semibold text-gray-900 mb-2">
-                    {{ userProfile?.fullName || "Guest User" }}
+                    {{ userProfile?.fullName || 'Guest User' }}
                   </h3>
                   <p class="text-gray-600 mb-4">
-                    {{ userProfile?.email || "No email provided" }}
+                    {{ userProfile?.email || 'No email provided' }}
                   </p>
 
                   <p-divider></p-divider>
@@ -71,7 +71,7 @@ interface UserProfile {
                     <div class="flex items-center text-sm text-gray-600">
                       <i class="pi pi-phone mr-2 text-blue-500"></i>
                       <span>{{
-                        userProfile?.phoneNumber || "No phone provided"
+                        userProfile?.phoneNumber || 'No phone provided'
                       }}</span>
                     </div>
                     <div class="flex items-center text-sm text-gray-600">
@@ -97,7 +97,7 @@ interface UserProfile {
                         >Full Name</label
                       >
                       <div class="p-3 bg-gray-50 rounded-lg border">
-                        {{ userProfile?.fullName || "Not provided" }}
+                        {{ userProfile?.fullName || 'Not provided' }}
                       </div>
                     </div>
 
@@ -107,7 +107,7 @@ interface UserProfile {
                         >Email Address</label
                       >
                       <div class="p-3 bg-gray-50 rounded-lg border">
-                        {{ userProfile?.email || "Not provided" }}
+                        {{ userProfile?.email || 'Not provided' }}
                       </div>
                     </div>
 
@@ -117,7 +117,7 @@ interface UserProfile {
                         >Phone Number</label
                       >
                       <div class="p-3 bg-gray-50 rounded-lg border">
-                        {{ userProfile?.phoneNumber || "Not provided" }}
+                        {{ userProfile?.phoneNumber || 'Not provided' }}
                       </div>
                     </div>
 
@@ -475,13 +475,13 @@ export class ProfileComponent implements OnInit {
   profileForm: FormGroup;
   isEditing = false;
   isSaving = false;
-  successMessage = "";
+  successMessage = '';
 
   constructor(private fb: FormBuilder) {
     this.profileForm = this.fb.group({
-      fullName: ["", [Validators.required]],
-      email: ["", [Validators.required, Validators.email]],
-      phoneNumber: ["", [Validators.required, Validators.pattern(/^\d+$/)]],
+      fullName: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
+      phoneNumber: ['', [Validators.required, Validators.pattern(/^\d+$/)]],
     });
   }
 
@@ -490,36 +490,36 @@ export class ProfileComponent implements OnInit {
   }
 
   loadUserProfile(): void {
-    const savedProfile = localStorage.getItem("userProfile");
+    const savedProfile = localStorage.getItem('userProfile');
     if (savedProfile) {
       this.userProfile = JSON.parse(savedProfile);
     }
   }
 
   getInitials(): string {
-    if (!this.userProfile?.fullName) return "GU";
+    if (!this.userProfile?.fullName) return 'GU';
 
-    const names = this.userProfile.fullName.split(" ");
+    const names = this.userProfile.fullName.split(' ');
     if (names.length >= 2) {
       return (names[0][0] + names[1][0]).toUpperCase();
     }
-    return names[0][0]?.toUpperCase() || "GU";
+    return names[0][0]?.toUpperCase() || 'GU';
   }
 
   getFormattedDate(): string {
-    if (!this.userProfile?.registeredAt) return "N/A";
+    if (!this.userProfile?.registeredAt) return 'N/A';
 
     const date = new Date(this.userProfile.registeredAt);
-    return date.toLocaleDateString("en-US", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
+    return date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
     });
   }
 
   enableEditing(): void {
     this.isEditing = true;
-    this.successMessage = "";
+    this.successMessage = '';
 
     if (this.userProfile) {
       this.profileForm.patchValue({
@@ -532,14 +532,14 @@ export class ProfileComponent implements OnInit {
 
   cancelEditing(): void {
     this.isEditing = false;
-    this.successMessage = "";
+    this.successMessage = '';
     this.profileForm.reset();
   }
 
   saveProfile(): void {
     if (this.profileForm.valid) {
       this.isSaving = true;
-      this.successMessage = "";
+      this.successMessage = '';
 
       const formData = this.profileForm.value;
 
@@ -555,24 +555,24 @@ export class ProfileComponent implements OnInit {
         };
 
         // Save to localStorage
-        localStorage.setItem("userProfile", JSON.stringify(updatedProfile));
+        localStorage.setItem('userProfile', JSON.stringify(updatedProfile));
 
         // Update current user info
         localStorage.setItem(
-          "currentUser",
+          'currentUser',
           JSON.stringify({ username: formData.email }),
         );
 
         // Update local state
         this.userProfile = updatedProfile;
 
-        this.successMessage = "Profile updated successfully!";
+        this.successMessage = 'Profile updated successfully!';
         this.isSaving = false;
 
         // Exit edit mode after 2 seconds
         setTimeout(() => {
           this.isEditing = false;
-          this.successMessage = "";
+          this.successMessage = '';
         }, 2000);
       }, 1000);
     }

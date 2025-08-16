@@ -1,10 +1,10 @@
-import { Component, OnInit } from "@angular/core";
-import { CommonModule } from "@angular/common";
-import { CardModule } from "primeng/card";
-import { ButtonModule } from "primeng/button";
-import { TagModule } from "primeng/tag";
-import { RatingModule } from "primeng/rating";
-import { FormsModule } from "@angular/forms";
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { CardModule } from 'primeng/card';
+import { ButtonModule } from 'primeng/button';
+import { TagModule } from 'primeng/tag';
+import { RatingModule } from 'primeng/rating';
+import { FormsModule } from '@angular/forms';
 
 interface Product {
   id: number;
@@ -18,7 +18,7 @@ interface Product {
 }
 
 @Component({
-  selector: "app-landing",
+  selector: 'app-landing',
   standalone: true,
   imports: [
     CommonModule,
@@ -521,98 +521,98 @@ export class LandingComponent implements OnInit {
   products: Product[] = [
     {
       id: 1,
-      name: "Wireless Bluetooth Headphones",
+      name: 'Wireless Bluetooth Headphones',
       description:
-        "High-quality wireless headphones with noise cancellation and 20-hour battery life.",
+        'High-quality wireless headphones with noise cancellation and 20-hour battery life.',
       price: 99.99,
       image:
-        "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=300&fit=crop",
+        'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=300&fit=crop',
       rating: 4.5,
-      category: "Electronics",
+      category: 'Electronics',
       inStock: true,
     },
     {
       id: 2,
-      name: "Smart Fitness Watch",
+      name: 'Smart Fitness Watch',
       description:
-        "Track your fitness goals with this advanced smartwatch featuring heart rate monitoring.",
+        'Track your fitness goals with this advanced smartwatch featuring heart rate monitoring.',
       price: 199.99,
       image:
-        "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=300&fit=crop",
+        'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=300&fit=crop',
       rating: 4.2,
-      category: "Wearables",
+      category: 'Wearables',
       inStock: true,
     },
     {
       id: 3,
-      name: "Premium Coffee Maker",
+      name: 'Premium Coffee Maker',
       description:
-        "Brew the perfect cup of coffee every morning with this programmable coffee maker.",
+        'Brew the perfect cup of coffee every morning with this programmable coffee maker.',
       price: 149.99,
       image:
-        "https://images.unsplash.com/photo-1517256064527-09c73fc73e38?w=400&h=300&fit=crop",
+        'https://images.unsplash.com/photo-1517256064527-09c73fc73e38?w=400&h=300&fit=crop',
       rating: 4.8,
-      category: "Kitchen",
+      category: 'Kitchen',
       inStock: false,
     },
     {
       id: 4,
-      name: "Ergonomic Office Chair",
+      name: 'Ergonomic Office Chair',
       description:
-        "Comfortable and supportive office chair designed for long working hours.",
+        'Comfortable and supportive office chair designed for long working hours.',
       price: 299.99,
       image:
-        "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop",
+        'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop',
       rating: 4.6,
-      category: "Furniture",
+      category: 'Furniture',
       inStock: true,
     },
     {
       id: 5,
-      name: "Portable Bluetooth Speaker",
+      name: 'Portable Bluetooth Speaker',
       description:
-        "Compact and powerful speaker with crystal clear sound and waterproof design.",
+        'Compact and powerful speaker with crystal clear sound and waterproof design.',
       price: 79.99,
       image:
-        "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400&h=300&fit=crop",
+        'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400&h=300&fit=crop',
       rating: 4.3,
-      category: "Audio",
+      category: 'Audio',
       inStock: true,
     },
     {
       id: 6,
-      name: "Gaming Mechanical Keyboard",
+      name: 'Gaming Mechanical Keyboard',
       description:
-        "Professional gaming keyboard with RGB backlighting and mechanical switches.",
+        'Professional gaming keyboard with RGB backlighting and mechanical switches.',
       price: 129.99,
       image:
-        "https://images.unsplash.com/photo-1541140532154-b024d705b90a?w=400&h=300&fit=crop",
+        'https://images.unsplash.com/photo-1541140532154-b024d705b90a?w=400&h=300&fit=crop',
       rating: 4.7,
-      category: "Gaming",
+      category: 'Gaming',
       inStock: true,
     },
     {
       id: 7,
-      name: "Wireless Charging Pad",
+      name: 'Wireless Charging Pad',
       description:
-        "Fast wireless charging pad compatible with all Qi-enabled devices.",
+        'Fast wireless charging pad compatible with all Qi-enabled devices.',
       price: 34.99,
       image:
-        "https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=400&h=300&fit=crop",
+        'https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=400&h=300&fit=crop',
       rating: 4.1,
-      category: "Accessories",
+      category: 'Accessories',
       inStock: true,
     },
     {
       id: 8,
-      name: "Ultra HD Web Camera",
+      name: 'Ultra HD Web Camera',
       description:
-        "4K webcam perfect for video conferencing and content creation.",
+        '4K webcam perfect for video conferencing and content creation.',
       price: 89.99,
       image:
-        "https://images.unsplash.com/photo-1587826080692-f439cd0b70da?w=400&h=300&fit=crop",
+        'https://images.unsplash.com/photo-1587826080692-f439cd0b70da?w=400&h=300&fit=crop',
       rating: 4.4,
-      category: "Electronics",
+      category: 'Electronics',
       inStock: false,
     },
   ];
@@ -624,9 +624,9 @@ export class LandingComponent implements OnInit {
   }
 
   scrollToProducts(): void {
-    const productsSection = document.querySelector(".products-section");
+    const productsSection = document.querySelector('.products-section');
     if (productsSection) {
-      productsSection.scrollIntoView({ behavior: "smooth" });
+      productsSection.scrollIntoView({ behavior: 'smooth' });
     }
   }
 

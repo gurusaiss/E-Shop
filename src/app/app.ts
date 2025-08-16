@@ -1,13 +1,13 @@
-import { Component, signal } from "@angular/core";
-import { RouterOutlet } from "@angular/router";
-import { NavigationComponent } from "./components/navigation/navigation.component";
+import { Component, signal } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { NavigationComponent } from './components/navigation/navigation.component';
 
 @Component({
-  selector: "app-root",
+  selector: 'app-root',
   imports: [RouterOutlet, NavigationComponent],
-  templateUrl: "./app.html",
-  styleUrl: "./app.css",
+  templateUrl: './app.html',
+  styleUrl: './app.css',
 })
 export class App {
-  protected readonly title = signal("E-Shop Angular Application");
+  protected readonly title = signal('E-Shop Angular Application');
 }
